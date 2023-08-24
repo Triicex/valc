@@ -16,6 +16,10 @@
     </style>
 
     <script src="aimbot.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="react.min.js"></script>
+    <script src="react-dom.min.js"></script>
+    <script src="bootstrap.min.js"></script>
   </head>
   <body>
     <h1>Aimbot GUI</h1>
@@ -26,5 +30,33 @@
       <button id="stop-button">Stop Aimbot</button>
       <input type="text" id="target-color">
     </div>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        let targetColor = $("#target-color").val();
+        aimBot(targetColor);
+
+        $("#start-button").on("click", function() {
+          aimBot(targetColor);
+        });
+
+        $("#stop-button").on("click", function() {
+          stopAimBot();
+        });
+      });
+
+      function stopAimBot() {
+        if (window.pyautogui) {
+          pyautogui.close();
+        }
+      }
+
+      function aimBot(triggerColor) {
+        if (window.pyautogui) {
+          window.pyautogui.typewrite(triggerColor);
+          window.pyautogui.press("enter");
+        }
+      }
+    </script>
   </body>
 </html>
