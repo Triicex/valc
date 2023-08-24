@@ -1,66 +1,62 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Aimbot GUI</title>
-    <style>
-      #target-color {
-        vertical-align: top;
-      }
+<div class="container">
+  <div id="speed-slider">
+    <p>Moving the slider will change the speed of the aimbot (0% - 100%).</p>
+    <button id="start-button">Start Aimbot</button>
+    <button id="stop-button">Stop Aimbot</button>
+  </div>
+  <input type="text" id="target-color">
+</div>
 
-      #speed-slider {
-        width: 300px;
-        height: 100px;
-        background-color: #dddddd;
-        position: relative;
-        overflow: hidden;
-        margin: 10px auto;
-      }
+<style>
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
 
-      .vertical-slider {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-      }
+#speed-slider p {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #1a1c44;
+}
 
-      .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-      }
+#speed-slider button {
+  font-size: 20px;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
 
-      input {
-        width: 50%;
-        font-size: 20px;
-        padding: 10px;
-        border-radius: 5px;
-        border: none;
-        background: #0078D4;
-        color: #ffffff;
-        font-weight: bold;
-        box-sizing: border-box;
-      }
+#start-button,
+#stop-button {
+  display: inline-block;
+  padding: 10px;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
 
-      input:focus {
-        outline: none;
-      }
-    </style>
+#start-button:hover,
+#stop-button:hover {
+  background-color: #181F26;
+}
 
-    <script src="aimbot.js"></script>
-    <script src="jquery.min.js"></script>
-    <script src="react.min.js"></script>
-    <script src="react-dom.min.js"></script>
-    <script src="bootstrap.min.js"></script>
-  </head>
-  <body>
-    <h1>Aimbot GUI</h1>
+#speed-slider {
+  width: 600px;
+  height: 100px;
+  background-color: #292E33;
+}
 
-    <div class="container">
-      <div id="target-color"></div>
-      <div id="speed-slider"></div>
-      <input id="speed" type="text" value="50">
-    </div>
-
-    <script type="text/javascript">
-      $(document).ready(function() {
-        let targetColor = $("#target-color").val();
+#target-color,
+input {
+  display: inline-block;
+  font-weight: bold;
+  box-sizing: border-box;
+  width: 300px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: #292E33;
+  box-shadow: 0 2
