@@ -1,19 +1,48 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=720, height=480">
-
     <title>Aimbot GUI</title>
     <style>
+      #target-color {
+        vertical-align: top;
+      }
+
       #speed-slider {
-        display: inline-block;
-        width: 400px;
+        width: 300px;
+        height: 100px;
+        background-color: #dddddd;
+        position: relative;
+        overflow: hidden;
+        margin: 10px auto;
+      }
+
+      .vertical-slider {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
       }
 
       .container {
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
+      }
+
+      input {
+        width: 50%;
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        background: #0078D4;
+        color: #ffffff;
+        font-weight: bold;
+        box-sizing: border-box;
+      }
+
+      input:focus {
+        outline: none;
       }
     </style>
 
@@ -27,38 +56,11 @@
     <h1>Aimbot GUI</h1>
 
     <div class="container">
+      <div id="target-color"></div>
       <div id="speed-slider"></div>
-      <button id="start-button">Start Aimbot</button>
-      <button id="stop-button">Stop Aimbot</button>
-      <input type="text" id="target-color">
+      <input id="speed" type="text" value="50">
     </div>
 
     <script type="text/javascript">
       $(document).ready(function() {
         let targetColor = $("#target-color").val();
-        aimBot(targetColor);
-
-        $("#start-button").on("click", function() {
-          aimBot(targetColor);
-        });
-
-        $("#stop-button").on("click", function() {
-          stopAimBot();
-        });
-      });
-
-      function stopAimBot() {
-        if (window.pyautogui) {
-          pyautogui.close();
-        }
-      }
-
-      function aimBot(triggerColor) {
-        if (window.pyautogui) {
-          window.pyautogui.typewrite(triggerColor);
-          window.pyautogui.press("enter");
-        }
-      }
-    </script>
-  </body>
-</html>
